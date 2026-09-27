@@ -2,6 +2,22 @@ import { notFound } from "next/navigation";
 import { getWorkoutById } from "@/lib/api";
 import WorkoutDetailActions from "@/components/workout-detail-actions";
 
+export const dynamic = 'force-static';
+export async function generateStaticParams() {
+  try {
+    const res = await fetch('https://api.api-store.workers.dev/api/fitlog', {cache: 'force-cache'});
+    const workouts = await res.json();
+    
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return workouts.map((workout: any) => ({
+     id: String(workout.id || workout._id),
+    }));
+  } catch (error) {
+    console.error('Failed to generate static params:', error);
+    return [];
+  }
+}
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -23,7 +39,7 @@ export default async function WorkoutDetailPage({ params }: PageProps) {
   ];
 
   return (
-    <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 lg:px-10">
+    <div className="mx-auto max-w-350 px-4 py-10 sm:px-6 lg:px-10">
       <div className="grid gap-10 lg:grid-cols-2">
         {/* Left — visual/media */}
         <div className="overflow-hidden rounded-3xl border border-border-subtle bg-surface">
@@ -41,7 +57,7 @@ export default async function WorkoutDetailPage({ params }: PageProps) {
           )}
         </div>
 
-        {/* Right — details */}
+        
         <div>
           <h1 className="font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
             {workout.name}
