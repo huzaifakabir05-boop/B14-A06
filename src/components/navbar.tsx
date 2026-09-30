@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { usePlan } from "@/lib/plan-context";
+import {BASE_PATH} from "@/lib/site";
 
 interface NavLink {
   href: string;
@@ -29,7 +30,7 @@ export default function Navbar() {
           href="/"
           className="flex items-center gap-2 font-display text-lg font-semibold tracking-wide"
         >
-          <Image src="/logo.png" alt="FitLog logo" width={28} height={28} priority />
+          <Image src={`${BASE_PATH}/logo.png`} alt="FitLog logo" width={28} height={28} className="h-7 w-7" priority />
           FITLOG
         </Link>
 

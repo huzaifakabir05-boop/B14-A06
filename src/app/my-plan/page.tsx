@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Check, Clock, Flame, Star, X } from "lucide-react";
 import SortDropdown, { SortKey } from "@/components/sort-dropdown";
 import { usePlan } from "@/lib/plan-context";
@@ -121,14 +122,17 @@ export default function MyPlanPage() {
                 <div className="flex items-center gap-4">
                   <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl bg-surface-2">
                     {workout.image && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
+                      <div className="relative h-full w-full">
+                      <Image
                         src={workout.image}
                         alt={workout.name}
-                        className="h-full w-full object-cover"
+                        fill sizes="64px"
+                        className="object-cover"
                       />
+                      </div>
                     )}
                   </div>
+
                   <div>
                     <h3 className="font-display text-sm font-bold uppercase tracking-tight">
                       {workout.name}

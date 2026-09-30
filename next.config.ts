@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
+import { BASE_PATH } from "./src/lib/site";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/B14-A06',
-  assetPrefix: '/B14-A06/',
+  basePath: BASE_PATH,
+  assetPrefix: `${BASE_PATH}/`,
   images: {
     unoptimized: true,
   },

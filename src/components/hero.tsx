@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/site";
 
 export default function Hero() {
   return (
@@ -21,13 +22,13 @@ export default function Hero() {
             href="#library"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-accent-foreground transition-transform hover:scale-[1.02]"
           >
-           Browse Workouts
+            Browse Workouts
           </a>
         </div>
 
         <div className="relative mx-auto h-64 w-64 sm:h-80 sm:w-80 lg:ml-auto lg:mr-0">
           <Image
-            src="/banner.png"
+            src={`${BASE_PATH}/banner.png`}
             alt="FitLog workout banner"
             fill
             priority

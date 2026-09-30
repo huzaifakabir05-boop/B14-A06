@@ -54,7 +54,7 @@ function extractList(data: unknown): RawWorkout[] {
 }
 
 export async function getWorkouts(): Promise<Workout[]> {
-  const res = await fetch(BASE_URL, { cache: "no-store" });
+  const res = await fetch(BASE_URL, { cache: "force-cache" });
   if (!res.ok) throw new Error(`Failed to fetch workouts (${res.status})`);
   const data: unknown = await res.json();
   return extractList(data).map(normalizeWorkout);

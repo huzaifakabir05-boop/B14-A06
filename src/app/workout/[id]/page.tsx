@@ -1,17 +1,14 @@
 import { notFound } from "next/navigation";
-import { getWorkoutById } from "@/lib/api";
+import Image from "next/image";
+import { getWorkoutById, getWorkouts } from "@/lib/api";
 import WorkoutDetailActions from "@/components/workout-detail-actions";
 
 export const dynamic = 'force-static';
+
 export async function generateStaticParams() {
   try {
-    const res = await fetch('https://api.api-store.workers.dev/api/fitlog', {cache: 'force-cache'});
-    const workouts = await res.json();
-    
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return workouts.map((workout: any) => ({
-     id: String(workout.id || workout._id),
-    }));
+    const workouts = await getWorkouts();
+    return workouts.map((workout) => ({ id: workout.id }));
   } catch (error) {
     console.error('Failed to generate static params:', error);
     return [];
@@ -41,23 +38,23 @@ export default async function WorkoutDetailPage({ params }: PageProps) {
   return (
     <div className="mx-auto max-w-350 px-4 py-10 sm:px-6 lg:px-10">
       <div className="grid gap-10 lg:grid-cols-2">
-        {/* Left — visual/media */}
-        <div className="overflow-hidden rounded-3xl border border-border-subtle bg-surface">
+        <div className="relative aspect-square overflow-hidden rounded-3xl border border-border-subtle bg-surface lg:aspect-auto">
           {workout.image ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={workout.image}
               alt={workout.name}
-              className="h-full w-full object-cover"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+              priority
             />
           ) : (
-            <div className="flex aspect-square items-center justify-center text-sm text-muted">
+            <div className="flex h-full items-center justify-center text-sm text-muted">
               No image
             </div>
           )}
         </div>
 
-        
         <div>
           <h1 className="font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
             {workout.name}
