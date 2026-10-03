@@ -36,7 +36,7 @@ export default async function WorkoutDetailPage({ params }: PageProps) {
   ];
 
   return (
-    <div className="mx-auto max-w-350 px-4 py-10 sm:px-6 lg:px-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="relative aspect-square overflow-hidden rounded-3xl border border-border-subtle bg-surface lg:aspect-auto">
           {workout.image ? (

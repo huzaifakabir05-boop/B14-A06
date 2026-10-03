@@ -19,7 +19,7 @@ export default async function Home() {
       {loadError ? (
         <section
           id="library"
-          className="mx-auto max-w-[1400px] px-4 py-16 text-center text-sm text-muted sm:px-6 lg:px-10"
+         className="mx-auto max-w-7xl px-6 py-16 text-center text-sm text-muted"
         >
           Couldn&apos;t load the workout library right now. Please refresh the
           page.

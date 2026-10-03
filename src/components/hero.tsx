@@ -3,7 +3,7 @@ import { BASE_PATH } from "@/lib/site";
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-350 px-4 pt-10 sm:px-6 sm:pt-14 lg:px-10">
+    <section className="mx-auto max-w-7xl px-6 pt-10">
       <div className="grid items-center gap-10 rounded-3xl border border-border-subtle bg-surface px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:px-14">
         <div>
           <p className="font-display text-sm font-semibold tracking-[0.2em] text-accent">

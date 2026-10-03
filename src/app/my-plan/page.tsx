@@ -66,7 +66,7 @@ export default function MyPlanPage() {
   }
 
   return (
-    <div className="mx-auto max-w-[1400px] px-4 py-10 sm:px-6 lg:px-10">
+    <div className="mx-auto max-w-7xl px-6 py-10">
       <h1 className="font-display text-3xl font-bold uppercase tracking-tight sm:text-4xl">
         My Plan
       </h1>
@@ -120,7 +120,7 @@ export default function MyPlanPage() {
                 className="flex flex-col gap-4 rounded-2xl border border-border-subtle bg-surface p-4 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="flex items-center gap-4">
-                  <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl bg-surface-2">
+                  <div className="h-16 w-16 shrink-0 overflow-hidden rounded-xl bg-surface-2">
                     {workout.image && (
                       <div className="relative h-full w-full">
                       <Image

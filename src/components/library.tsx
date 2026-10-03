@@ -28,7 +28,7 @@ export default function Library({ workouts }: { workouts: Workout[] }) {
   }, [workouts, sortBy, query]);
 
   return (
-    <section id="library" className="mx-auto max-w-350 px-4 py-16 sm:px-6 lg:px-10">
+    <section id="library" className="mx-auto max-w-7xl px-6 py-16">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 className="font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl">
@@ -59,7 +59,7 @@ export default function Library({ workouts }: { workouts: Workout[] }) {
           No workouts match &quot;{query}&quot;.
         </p>
       ) : (
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((workout) => (
             <WorkoutCard key={workout.id} workout={workout} />
           ))}
